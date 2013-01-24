@@ -1,0 +1,7 @@
+{
+    "name": "sm-plugin-dmg",
+    "version": "0.1.1",
+    "pm": "sm",
+    "main": "./plugin.js",
+    "dependencies": {}
+}
