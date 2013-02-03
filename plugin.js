@@ -62,7 +62,12 @@ exports.for = function(API, plugin) {
         function extract() {
             options.logger.info("Extracting '" + mountPath + "' to '" + toPath + "'.");
             var deferred = API.Q.defer();
-            API.FS.copy(mountPath, toPath, function(err) {
+            API.COPY(mountPath, toPath, {
+                filter: function(path) {
+                    if (/\/.Trashes$/.test(path)) return false;
+                    return true;
+                }
+            }, function (err) {
                 if (err) return deferred.reject(err);
                 return deferred.resolve();
             });
