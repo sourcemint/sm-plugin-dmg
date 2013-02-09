@@ -32,7 +32,7 @@ exports.for = function(API, plugin) {
         var mountPath = toPath + "~mount";
 
         function convert() {
-            if (PATH.existsSync(cdrPath)) return API.Q.resolve(null);
+            if (API.FS.existsSync(cdrPath)) return API.Q.resolve(null);
             options.logger.info("Converting dmg '" + fromPath + "' to cdr.");
             return API.OS.spawnInline("/usr/bin/hdiutil", [
                 "convert", "-quiet", fromPath, "-format", "UDTO", "-o", fromPath + "~"
