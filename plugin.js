@@ -18,6 +18,7 @@ exports.for = function(API, plugin) {
             };
             // NOTE: Assuming DMG url.
             locations.dmg = locator.url;
+            locations.archive = locations.dmg;
             return (type)?locations[type]:locations;
         }
 
